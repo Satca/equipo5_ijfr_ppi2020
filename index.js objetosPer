@@ -1,0 +1,90 @@
+import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+import Header from "../../components/header";
+
+export default function Objetos() {
+  const [reporte, setReporte] = useState("");
+
+  return (
+    <div className="container">
+      <Link to="/appBody">
+        <svg
+          width="1em"
+          height="1em"
+          viewBox="0 0 16 16"
+          className="bi bi-arrow-left"
+          fill="currentColor"
+          style={{ color: "white", position: "absolute", top: "25px" }}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fillRule="evenodd"
+            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+          />
+        </svg>
+      </Link>
+      <Header />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
+        <Form style={{ width: "250px", marginTop: "70px" }}>
+          <Form.Group controlId="formBasicreporte">
+            <Form.Label style={{ color: "white" }}>
+              Reportar un objeto perdido
+            </Form.Label>
+            <Form.Control
+              type="reporte"
+              value={reporte}
+              onChange={(e) => setReporte(e.target.value)}
+              style={{
+                color: "white",
+                background: "none",
+                border: "none",
+                borderBottom: "1px solid white",
+                borderRadius: "1px"
+              }}
+            />
+          </Form.Group>
+        </Form>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
+        <Link
+          to="/appBody"
+          style={{
+            width: "250px",
+            marginTop: "50px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
+          <Button
+            className="mt-3 mb-4"
+            style={{
+              background: "white",
+              border: "1px solid white",
+              color: "#373737",
+              width: "100%",
+              alignItems: "center"
+            }}
+          >
+            <strong>Enviar</strong>
+          </Button>
+        </Link>
+      </div>
+      <div className="d-flex flex-column align-items-center pt-3"></div>
+    </div>
+  );
+}
